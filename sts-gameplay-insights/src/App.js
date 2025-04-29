@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+
+const sampleRun = require('./sampleRun.json');
+
 function test(){
   return 1;
 }
@@ -9,7 +12,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>{test()}</code> and save to reload.
+          Edit <code>{sampleRun.ascension_level}</code> and save to reload.
         </p>
         <a
           className="App-link"
