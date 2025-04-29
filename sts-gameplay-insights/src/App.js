@@ -19,7 +19,7 @@ function App() {
             Deck Composition:
         </p>
         <ul>
-          {[...deckMap.entries()].map(([card, count]) => <li key={card}>{card}: {count}</li>)}
+          {[...deckMap.entries()].map(([card, count]) => <li key={card}>{card}: {count}</li>)} 
         </ul>
       </header>
     </div>
