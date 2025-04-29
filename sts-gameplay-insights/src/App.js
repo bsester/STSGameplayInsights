@@ -3,25 +3,24 @@ import './App.css';
 
 const sampleRun = require('./sampleRun.json');
 
-function test(){
-  return 1;
+function deckCounter(deck){
+  const cardCountMap = new Map();
+  for (const card of deck)
+  {cardCountMap.set(card, (cardCountMap.get(card) || 0) + 1)} // if the card is already in the map, increment its count, otherwise set it to 1
+  return cardCountMap;
 }
 function App() {
+  const deckMap = deckCounter(sampleRun.master_deck); // build current map
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>{JSON.stringify(sampleRun.potions_obtained[0])}</code> and save to reload.
+            Deck Composition:
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ul>
+          {[...deckMap.entries()].map(([card, count]) => <li key={card}>{card}: {count}</li>)}
+        </ul>
       </header>
     </div>
   );
